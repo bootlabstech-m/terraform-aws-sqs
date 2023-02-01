@@ -1,7 +1,8 @@
 resource "aws_sqs_queue" "terraform_queue" {
-  name                      = var.name
-  delay_seconds             = var.delay_seconds
-  max_message_size          = var.max_message_size
-  message_retention_seconds = var.message_retention_seconds
-  receive_wait_time_seconds = var.receive_wait_time_seconds
+  for_each                = { for sqs in var.sqs_details : sqs.name => sqs }  
+  name                      = each.value.name
+  delay_seconds             = each.value.delay_seconds
+  max_message_size          = each.value.max_message_size
+  message_retention_seconds = each.value.message_retention_seconds
+  receive_wait_time_seconds = each.value.receive_wait_time_seconds 
 }
