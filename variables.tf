@@ -1,7 +1,11 @@
-variable "sqs_details" {
-  type        = string
-  description = "values"
-}/*
+variable "no_of_queues" {
+  type        = number
+  description = "no_of_queues"
+}
+variable "queue_name" {
+  type        = list(string)
+  description = "queue_name"
+}
 variable "delay_seconds" {
   type        = number
   description = "The time in seconds that the delivery of all messages in the queue will be delayed.An integer from 0 to 900,default 0"
@@ -17,7 +21,7 @@ variable "message_retention_seconds" {
 variable "receive_wait_time_seconds" {
   type        = number
   description = "The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds), default is 0"
-}*/
+}
 
 variable "region" {
   type        = string
