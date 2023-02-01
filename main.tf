@@ -1,5 +1,5 @@
 resource "aws_sqs_queue" "terraform_queue" {
-  count                     = no_of_queues  
+  count                     = var.no_of_queues  
   name                      = var.queue_name[count.index]
   delay_seconds             = var.delay_seconds
   max_message_size          = var.max_message_size
