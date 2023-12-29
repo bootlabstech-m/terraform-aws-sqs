@@ -2,8 +2,8 @@ variable "no_of_queues" {
   type        = number
   description = "no_of_queues"
 }
-variable "queue_name" {
-  type        = list(string)
+variable "name" {
+  type        = string
   description = "queue_name"
 }
 variable "visibility_timeout_seconds" {
