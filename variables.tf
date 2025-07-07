@@ -41,12 +41,17 @@ variable "kms_master_key_id" {
 variable "kms_data_key_reuse_period_seconds" {
   type        = number
   description = "The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again"
+  default = 300
 }
 variable "deduplication_scope" {
   type        = string
   description = "Specifies whether message deduplication occurs at the message group or queue level"
 }
-
+variable "content_based_deduplication" {
+  description = "Enable content-based deduplication for FIFO queue"
+  type        = bool
+  default     = true
+}
 variable "region" {
   type        = string
   description = "region of the SQS."
@@ -55,3 +60,4 @@ variable "role_arn" {
   description = " The ARN of the IAM role"
   type = string
 }
+
